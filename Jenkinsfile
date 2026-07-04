@@ -3,26 +3,26 @@ pipeline{
     stages{
         stage('1-clone'){
             steps{
-                sh 'cat /etc/passwd'
+                echo "Cloning into repository"
             }
         }
         stage('2-parallel-jobs'){
             parallel{
                 stage('1-subjob1'){
                     steps{
-                        sh 'lscpu'
+                        echo "Running sub-job 1"
                     }   
                 }
                 stage('2-subjob2'){
                     steps{
-                        sh 'df -h'
+                        echo "Running sub-job 2"
                     }
                 }
             }
         }
         stage('3-codetest'){
             steps{
-                sh 'free -m'
+                echo "Running code test"
             }
         }
         stage('4-closing'){
