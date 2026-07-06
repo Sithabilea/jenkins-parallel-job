@@ -26,6 +26,9 @@ pipeline{
             }
         }
         stage('4-closing'){
+            when {
+                branch 'feature'
+            }
             steps{
                 echo "we are done"
             }
